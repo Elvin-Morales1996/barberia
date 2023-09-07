@@ -19,7 +19,7 @@ return new class extends Migration
 
             //ESTILISTA
             $table->unsignedBigInteger('stylist_id');
-            $table->foreign('stylist_id')->references('id')->on('stylist');
+            $table->foreign('stylist_id')->references('id')->on('stylists');
 
             //SUCURSALES
             $table->unsignedBigInteger('branches_id');

@@ -19,12 +19,12 @@ return new class extends Migration
             //relaciona tablas llave foranea
             
              //CLIENTE 1
-             $table->unsignedBigInteger('client_id');
-             $table->foreign('client_id')->references('id')->on('clients');
+             $table->unsignedBigInteger('clients_id');
+             $table->foreign('clients_id')->references('id')->on('clients');
 
             //ESTILISTA 2
-            $table->unsignedBigInteger('stylist_id');
-            $table->foreign('stylist_id')->references('id')->on('stylist');
+            $table->unsignedBigInteger('stylists_id');
+            $table->foreign('stylists_id')->references('id')->on('stylists');
 
             //SERVICIO 3
             $table->unsignedBigInteger('services_id');
@@ -35,8 +35,8 @@ return new class extends Migration
             $table->foreign('drinks_id')->references('id')->on('drinks');
 
             //MUSICA 5
-            $table->unsignedBigInteger('music_id');
-            $table->foreign('music_id')->references('id')->on('music');
+            $table->unsignedBigInteger('musics_id');
+            $table->foreign('musics_id')->references('id')->on('musics');
             $table->timestamps();
 
         });
@@ -48,6 +48,13 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('appointments');
+        /*
+        // Desactivar las restricciones de clave externa
+    DB::statement('SET FOREIGN_KEY_CHECKS=0');
+    Schema::dropIfExists('nombre_de_la_tabla');
+    // Volver a activar las restricciones de clave externa
+    DB::statement('SET FOREIGN_KEY_CHECKS=1');
+        */
         
     }
 };
