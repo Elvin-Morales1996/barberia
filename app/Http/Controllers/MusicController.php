@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Clients;
+use App\Models\Musics;
 
-class ClientsController extends Controller
+
+class MusicController extends Controller
 {
-    
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        //  
-        $clients = Clients ::all();
-        return $clients;
+        //
+        $musics = Musics::all();
+        return $musics ;
     }
 
     /**
@@ -24,13 +27,13 @@ class ClientsController extends Controller
     }
 
     /**
-     * crear un nuevo cliente
+     * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
         //
-        $clients = Clients::create($request->all());
-        return response()->json($clients,201);
+        $musics  = Musics::create($request->all());
+        return response()->json($musics ,201);
     }
 
     /**
@@ -54,10 +57,10 @@ class ClientsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //modificar por medio de id
-        $clients = Clients::findOrFail($id);
-        $clients->update($request->all());
-        return response()->json($clients,200);
+        //
+        $musics  = Musics::findOrFail($id);
+        $musics ->update($request->all());
+        return response()->json($musics ,200);
     }
 
     /**

@@ -3,16 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Clients;
+use App\Models\Branches;
 
-class ClientsController extends Controller
+class BranchesController extends Controller
 {
-    
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        //  
-        $clients = Clients ::all();
-        return $clients;
+        //
+        $branches = Branches::all();
+        return $branches;
     }
 
     /**
@@ -24,13 +26,14 @@ class ClientsController extends Controller
     }
 
     /**
-     * crear un nuevo cliente
+     * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
         //
-        $clients = Clients::create($request->all());
-        return response()->json($clients,201);
+        
+        $branches = Branches::create($request->all());
+        return response()->json($branches,201);
     }
 
     /**
@@ -54,10 +57,10 @@ class ClientsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //modificar por medio de id
-        $clients = Clients::findOrFail($id);
-        $clients->update($request->all());
-        return response()->json($clients,200);
+        //
+        $branches = Branches::findOrFail($id);
+        $branches->update($request->all());
+        return response()->json($branches,200);
     }
 
     /**
