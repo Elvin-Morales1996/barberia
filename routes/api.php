@@ -14,6 +14,8 @@ use App\Http\Controllers\BranchesController;
 use App\Http\Controllers\StylistsController;
 //bebidas
 use App\Http\Controllers\DrinksController;
+//horarios
+use App\Http\Controllers\ShedulesController;
 
 
 /*
@@ -63,5 +65,8 @@ Route::post('/drinks',[DrinksController::class,'store']);
 Route::put('/drinks/{id}',[DrinksController::class,'update']);
 
 
+//horarios
 
-
+Route::get('/she',[ShedulesController::class,'index']);
+Route::post('/she',[ShedulesController::class,'store']);
+Route::put('/she/{id}',[ShedulesController::class,'update']);
